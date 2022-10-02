@@ -1,10 +1,11 @@
 import styled, { createGlobalStyle } from "styled-components";
 
 // VARIABLES
-export const GRAY = "#EDEDED"
-export const GRAY_BORDER = '1px solid #D5D5D5'
-export const BORDER_RADIUS = '0.5rem'
-export const CONTENT_PADDING = '2rem 1rem';
+export const GRAY = "#EDEDED";
+export const GRAY_BORDER = "1px solid #D5D5D5";
+export const BORDER_RADIUS = "0.5rem";
+export const CONTENT_PADDING = "2rem 1rem";
+export const BLUE = "#24399B"
 
 const GlobalStyle = createGlobalStyle`
       body {
@@ -54,11 +55,11 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export const ContentWrapper = styled.main`
-      width: 100%;
-      margin: 0 auto;
-      height: 80vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-`
-export default GlobalStyle
+  width: 100%;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export default GlobalStyle;

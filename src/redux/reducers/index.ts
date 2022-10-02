@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
 import searchReducer from "./searchParams";
-const rootReducers = combineReducers({ searchReducer });
+import loggedReducer from './isLogged';
+const rootReducers = combineReducers({ searchReducer, loggedReducer });
 export default rootReducers;

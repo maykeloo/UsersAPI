@@ -8,6 +8,7 @@ import { PaginationWrapper } from "../../Pagination/Pagination.styles";
 import { ReactComponent as Loader } from "../../../assets/svg/loader.svg";
 import { SortLabel } from "../../Sort/SortLabel";
 import { FilterLabel } from "../../Filter/FilterLabel";
+import { EditUser } from "../../EditUser/EditUser";
 
 export const UsersList = () => {
   const [users, setUsers] = useState<User[]>();
@@ -21,6 +22,7 @@ export const UsersList = () => {
     <>
     <ListWrapper>
       <FilterLabel/>
+      <EditUser/>
       <SortLabel/>
       {users ? users.map((user, i) => (
         <UserBox user={user} key={i}/>

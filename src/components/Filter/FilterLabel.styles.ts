@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import { BORDER_RADIUS, GRAY_BORDER } from "../../Global.styles";
+import { BLUE, BORDER_RADIUS, GRAY_BORDER } from "../../Global.styles";
 
 export const Label = styled.div`
       width: 100%;
       margin-bottom: 2rem;
-      margin-top: 10rem;
       background: white;
       border: ${GRAY_BORDER};
       border-radius: ${BORDER_RADIUS};
@@ -41,14 +40,14 @@ export const SearchButton = styled.button`
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      border: 1px solid #255DC3;
+      border: 1px solid ${BLUE};
       font-weight: 600;
       transition: 0.2s;
       transform: translateX(-10px);
 
       &:hover {
             color: white;
-            background-color: #255DC3;
+            background-color: ${BLUE};
       }
 `
 
@@ -57,12 +56,12 @@ export const FilterWrapper = styled.div`
       gap: 1.5rem;
 `
 
-export const FilterButton = styled.button`
+export const FilterButton = styled.button<{selected: boolean}>`
       text-align: center;
       padding: 0.5rem 2rem;
       border-radius: ${BORDER_RADIUS};
-      border: ${GRAY_BORDER};
-      background: transparent;
+      border: ${props => props.selected ? '1px solid black' : GRAY_BORDER};
+      background: ${props => props.selected ? '#f3f3f3' : 'transparent'};
       cursor: pointer;
       font-weight: 500;
       transition: 0.2s;

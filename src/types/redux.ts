@@ -1,6 +1,6 @@
 import { URLPayload } from "./url";
 
 export interface ReduxState {
-  pageReducer: number;
+  loggedReducer: boolean;
   searchReducer: URLPayload;
 }

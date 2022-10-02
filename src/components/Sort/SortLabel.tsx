@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { ReduxState } from "../../types/redux";
-import { SortButton } from "./SortLabel.styles";
+import { SortButton, SortButtonContent } from "./SortLabel.styles";
 import { ArrowIcon, ButtonText, Label } from "./SortLabel.styles";
 import { searchParams } from '../../redux/actions/searchingParams'
 import { URLPayload } from "../../types/url";
@@ -45,8 +45,10 @@ export const SortLabel: React.FC = () => {
     <Label>
       {values.map((value) => (
         <SortButton width={value.width} onClick={() => sortBy(value)}>
-          <ButtonText>{value.name}</ButtonText>
-          <ArrowIcon arrowRotate={params[value.sortBy as keyof URLPayload] === "asc" ? true : false}/>
+          <SortButtonContent>
+            <ButtonText>{value.name}</ButtonText>
+            <ArrowIcon arrowRotate={params[value.sortBy as keyof URLPayload] === "asc" ? true : false}/>
+          </SortButtonContent>
         </SortButton>
       ))}
     </Label>
