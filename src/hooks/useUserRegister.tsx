@@ -77,16 +77,16 @@ export const useUserRegister = (
             }
           );
           const contentCheck = await rawResponse.json();
-
-          if (contentCheck) {
+          if(contentCheck) {
             setLoading(false);
-            document.cookie = `token=${content.token}`;
+            document.cookie = `token=${contentCheck.token}`;
+            document.cookie = `refresh=${contentCheck.refresh_token}`;
             window.location.href = "/";
           }
         }
-      } catch {
+      } catch(err) {
         setLoading(false);
-        console.log("ERROR");
+        throw new Error(`Can't register: ${err}`)
       }
     }
   };

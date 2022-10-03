@@ -21,9 +21,13 @@ export const FilterLabel: React.FC = () => {
   const searchByName = (): void => {
     dispatch(searchParams({...params, "search": input ? input : ""}))
   }
-
+  const data = {
+    "filter[is_activated]": "ACTIVE,INACTIVE",
+    "page": 1,
+    "perPage": 5,
+  }
+  //TODO: SORTOWANIE DALEJ LEŻY
   const filterByActivity = (act: URLPayload['filter[is_activated]']): void => {
-    console.log(params['filter[is_activated]'])
     dispatch(searchParams({...params, "filter[is_activated]": act}))
   }
 

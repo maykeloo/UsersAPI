@@ -27,16 +27,15 @@ export const useUserLogin = (email: string, password: string) => {
                               body: JSON.stringify(DATA_LOGIN)
                         });
                         const content = await rawResponse.json();
-                        console.log(content)
                         if(content.token) {
                               setLoading(false);
                               document.cookie = `token=${content.token}`
                               window.location.href = "/";
                         }
                         
-                  } catch {
+                  } catch(err) {
                         setLoading(false);
-                        console.log("ERROR")
+                        throw new Error(`Can't login: ${err}`)
                   }
             }
       };

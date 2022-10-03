@@ -37,8 +37,17 @@ export const SortLabel: React.FC = () => {
   const dispatch = useDispatch()
   const params = useSelector((state: ReduxState) => state.searchReducer);
 
+  
+  const data = {
+    "filter[is_activated]": params["filter[is_activated]"],
+    "page": params.page,
+    "perPage": params.perPage,
+  }
+
+  //TODO: SORTOWANIE LEZY I KWICZY
   const sortBy = (value: Values) => {
     dispatch(searchParams({...params, [value.sortBy]: params[value.sortBy as keyof URLPayload] === "asc" ? "desc" : "asc" }))
+    console.log({params, data})
   }
 
   return (

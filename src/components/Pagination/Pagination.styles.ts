@@ -11,7 +11,7 @@ export const List = styled.ul`
 export const PaginationWrapper = styled.div`
   display: flex;
   width: 100%;
-  margin-top: 3rem;
+  margin-top: 1rem;
   justify-content: center;
 `;
 
