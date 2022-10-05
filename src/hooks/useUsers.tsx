@@ -13,9 +13,7 @@ export const useUsers = (): Payload => {
   const [users, setUsers] = useState<GetUserPayload | null>(null);
 
   const fetchData = async (linkParams: any): Promise<void> => {
-    const url: URL = new URL(
-      `http://api.ultimate.systems/public/index.php/api/v1/auth/users`
-    );
+    const url: URL = new URL(`http://api.ultimate.systems/public/index.php/api/v1/auth/users`);
     const params = new URLSearchParams(linkParams);
     url.search = params.toString();
 
@@ -28,7 +26,6 @@ export const useUsers = (): Payload => {
     }
   };
 
-  // SELECTORS
   const params = useSelector((state: ReduxState) => state.searchReducer);
   useEffect(() => {
     fetchData(store.getState().searchReducer);

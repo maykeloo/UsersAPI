@@ -18,17 +18,15 @@ export const useUserLogin = (email: string, password: string) => {
       };
 
       try {
-        const rawResponse = await fetch(
-          "http://api.ultimate.systems/public/index.php/api/v1/login/check",
-          {
+        const rawResponse = await fetch("http://api.ultimate.systems/public/index.php/api/v1/login/check", {
             method: "POST",
             headers: {
               Accept: "application/json",
               "Content-Type": "application/json",
             },
             body: JSON.stringify(DATA_LOGIN),
-          }
-        );
+        });
+
         const content = await rawResponse.json();
         if (content.token) {
           setLoading(false);
@@ -36,7 +34,6 @@ export const useUserLogin = (email: string, password: string) => {
           document.cookie = `refresh=${content.refresh_token}`;
           window.location.href = "/";
         }
-
         if (content.code === 401) {
           setEmailError(true);
           setPasswordError(true);

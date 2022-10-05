@@ -40,31 +40,26 @@ export const useUserRegister = (
       };
 
       try {
-        const rawResponse = await fetch(
-          "http://api.ultimate.systems/public/index.php/api/v1/register",
-          {
+        const rawResponse = await fetch("http://api.ultimate.systems/public/index.php/api/v1/register", {
             method: "POST",
             headers: {
               Accept: "application/json",
               "Content-Type": "application/json",
             },
             body: JSON.stringify(DATA_REGISTER),
-          }
-        );
+        });
         const content = await rawResponse.json();
 
         if (content.success) {
-          const rawResponse = await fetch(
-            "http://api.ultimate.systems/public/index.php/api/v1/login/check",
-            {
+          const rawResponse = await fetch("http://api.ultimate.systems/public/index.php/api/v1/login/check", {
               method: "POST",
               headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
               },
               body: JSON.stringify(DATA_CHECK),
-            }
-          );
+          });
+          
           const contentCheck = await rawResponse.json();
           if (contentCheck) {
             setLoading(false);

@@ -25,11 +25,10 @@ export const UsersList = () => {
         <EditUser />
         <SortLabel />
         <ListWrapper>
-          {users ? (
-            users.map((user, i) => <UserBox user={user} key={i} />)
-          ) : (
-            <Loader />
-          )}
+          {users 
+            ? (users.map((user, i) => <UserBox user={user} key={i} />)) 
+            : <Loader />
+          }
         </ListWrapper>
         <PaginationWrapper>
           <PaginationOutlined />
