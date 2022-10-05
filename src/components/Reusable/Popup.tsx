@@ -12,6 +12,14 @@ const PopupWrapper = styled.div<{ color: string }>`
   text-align: center;
   border-radius: 10px;
   font-weight: 500;
+
+  @media screen and (max-width: 786px) {
+    top: 1rem;
+    z-index: 1;
+    height: fit-content;
+    width: 95vw;
+    padding: 0.5rem;
+  }
 `;
 
 export default function Popup({

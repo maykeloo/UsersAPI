@@ -41,12 +41,13 @@ export const useUserRegister = (
 
       try {
         const rawResponse = await fetch(
-          "http://api.ultimate.systems/public/index.php/api/v1/register",
+          "api/v1/register",
           {
             method: "POST",
             headers: {
               Accept: "application/json",
               "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*"
             },
             body: JSON.stringify(DATA_REGISTER),
           }
@@ -55,7 +56,7 @@ export const useUserRegister = (
 
         if (content.success) {
           const rawResponse = await fetch(
-            "http://api.ultimate.systems/public/index.php/api/v1/login/check",
+            "api/v1/login/check",
             {
               method: "POST",
               headers: {

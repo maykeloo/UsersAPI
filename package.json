@@ -1,9 +1,8 @@
 {
   "name": "rekrutacja",
   "version": "0.1.0",
-  "homepage": "http://maykeloo.github.io/UsersAPI",
   "private": true,
-  "proxy":"http://api.ultimate.systems/",
+  "proxy":"http://api.ultimate.systems/public/index.php/",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",

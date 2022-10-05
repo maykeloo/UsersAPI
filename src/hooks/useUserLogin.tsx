@@ -19,7 +19,7 @@ export const useUserLogin = (email: string, password: string) => {
 
       try {
         const rawResponse = await fetch(
-          "http://api.ultimate.systems/public/index.php/api/v1/login/check",
+          "api/v1/login/check",
           {
             method: "POST",
             headers: {

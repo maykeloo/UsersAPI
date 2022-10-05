@@ -38,7 +38,7 @@ export const useUserEdit = (
     setSurnameError(surname ? false : true);
     setSalesError(sales ? false : true);
     setPrivacyError(privacy ? false : true);
-    setNumberError(phone && phone.toString().length > numberLength && prefix ? false : true);
+    setNumberError(phone && phone.toString().length >= numberLength && prefix ? false : true);
 
     if (
       email &&
@@ -48,7 +48,7 @@ export const useUserEdit = (
       privacy &&
       sales &&
       prefix &&
-      phone.toString().length > numberLength &&
+      phone.toString().length >= numberLength &&
       emailRegex.test(email)
     )
       return true;
@@ -79,7 +79,7 @@ export const useUserEdit = (
     if (values) {
       try {
         const rawResponse = await fetch(
-          "http://api.ultimate.systems/public/index.php/api/v1/auth/user",
+          "api/v1/auth/user",
           {
             method: "PATCH",
             headers: {

@@ -8,6 +8,8 @@ export const CONTENT_PADDING = "2rem 1rem";
 export const BLUE = "#24399B";
 
 const GlobalStyle = createGlobalStyle`
+      @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+      
       body {
             margin: 0;
             background-color: ${GRAY};
@@ -19,39 +21,6 @@ const GlobalStyle = createGlobalStyle`
             'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
             sans-serif;
             /* transform: scale(0.92) */
-      }
-
-      @font-face {
-            font-family: "Fira Sans";
-            src: url("FiraSans-Heavy.otf");
-            font-weight: 900;
-            font-style: normal;
-      }
-
-      @font-face {
-            font-family: "Fira Sans";
-            src: url("FiraSans-Light.otf");
-            font-weight: 300;
-            font-style: normal;
-      }
-
-      @font-face {
-            font-family: "Fira Sans";
-            src: url("FiraSans-Medium.otf");
-            font-weight: 500;
-            font-style: normal;
-      }
-      @font-face {
-            font-family: "Fira Sans";
-            src: url("FiraSans-Regular.otf");
-            font-weight: 400;
-            font-style: normal;
-      }
-      @font-face {
-            font-family: "Fira Sans";
-            src: url("FiraSans-SemiBold.otf");
-            font-weight: 700;
-            font-style: normal;
       }
 `;
 

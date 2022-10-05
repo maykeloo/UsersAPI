@@ -1,7 +1,7 @@
 import { Fragment, useEffect } from "react";
 import { UsersList } from "./components/User/UserList/UsersList";
 import GlobalStyle, { ContentWrapper } from "./Global.styles";
-import { HashRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
 import { SignUp } from "./components/SignInUp/SignUp";
 import { SignIn } from "./components/SignInUp/SignIn";
 import { useSelector } from "react-redux";

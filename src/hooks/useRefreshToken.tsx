@@ -8,7 +8,7 @@ export const useRefreshToken = () => {
     };
     try {
       const rawResponse = await fetch(
-        "http://api.ultimate.systems/public/index.php/api/v1/auth/token/refresh",
+        "api/v1/auth/token/refresh",
         {
           method: "POST",
           headers: {
