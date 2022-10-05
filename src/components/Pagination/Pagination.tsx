@@ -31,7 +31,6 @@ export default function UsePagination() {
 
   useEffect(() => {
     countPages()
-    console.log(usersLength)
   }, [users, params])
 
   return (
