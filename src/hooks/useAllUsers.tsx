@@ -1,26 +1,28 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { store } from "../redux";
 import { ReduxState } from "../types/redux";
-import { URLPayload } from "../types/url";
-import { GetUserPayload} from "../types/user";
+import { GetUserPayload } from "../types/user";
 
-interface Payload { 
+interface Payload {
   users: GetUserPayload | null;
-  refetch: (linkParams: Record<string, string>) => Promise<void>
- }
+  refetch: (linkParams: Record<string, string>) => Promise<void>;
+}
 
 export const useAllUsers = (): Payload => {
+  const stateParams = useSelector((state: ReduxState) => state.searchReducer);
   const [users, setUsers] = useState<GetUserPayload | null>(null);
+
   const linkParams = {
-      "filter[is_activated]": "ACTIVE,INACTIVE",
-      page: 1,
-      perPage: 1000,
-  }
+    "filter[is_activated]": stateParams["filter[is_activated]"],
+    page: 1,
+    perPage: 500,
+  };
   const fetchData = async (linkParams: any): Promise<void> => {
-    const url: URL = new URL(`http://api.ultimate.systems/public/index.php/api/v1/auth/users`);
+    const url: URL = new URL(
+      `http://api.ultimate.systems/public/index.php/api/v1/auth/users`
+    );
     const params = new URLSearchParams(linkParams);
-    url.search = params.toString(); 
+    url.search = params.toString();
 
     try {
       const data: Response = await fetch(url);
@@ -30,15 +32,15 @@ export const useAllUsers = (): Payload => {
       throw new Error("Can't reach users.");
     }
   };
-  
+
   // SELECTORS
   const params = useSelector((state: ReduxState) => state.searchReducer);
   useEffect(() => {
     fetchData(linkParams);
   }, [params]);
-  
+
   return {
     users: users ? users : null,
-    refetch: fetchData
+    refetch: fetchData,
   };
 };

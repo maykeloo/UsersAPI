@@ -250,7 +250,7 @@ export const EditInput = styled.input`
     margin: 0;
   }
   @media screen and (max-width: 786px) {
-    &[type=number] {
+    &[type="number"] {
       width: 90%;
     }
   }
@@ -299,7 +299,7 @@ export const EditButtonsWrapper = styled.div`
   @media screen and (max-width: 786px) {
     flex-direction: column-reverse;
     margin-top: 1rem;
-    gap: 0.5rem
+    gap: 0.5rem;
   }
 `;
 

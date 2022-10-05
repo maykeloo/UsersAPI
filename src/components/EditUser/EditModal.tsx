@@ -22,7 +22,18 @@ export const EditModal = ({setModalVisible}: Props): JSX.Element => {
   const [privacy, setPrivacy] = useState<boolean>(false);
   const [marketing, setMarketing] = useState<boolean>(false);
   const [sales, setSales] = useState<boolean>(false);  
-  const {date, setDate, updateUserData, loading, numberError, dataError, emailError, nameError, surnameError, salesError, privacyError} = useUserEdit(email, name, surname, phone, prefix,  privacy, marketing, sales);
+  const { 
+      date, 
+      setDate, 
+      updateUserData, 
+      loading, 
+      numberError, 
+      dataError, 
+      emailError, 
+      nameError, 
+      surnameError, 
+      salesError, 
+      privacyError} = useUserEdit(email, name, surname, phone, prefix,  privacy, marketing, sales);
 
   const logOut = async (): Promise<void> => {
       document.cookie = 'token=;expires=' + new Date(0).toUTCString();

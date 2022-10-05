@@ -3,23 +3,23 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import { BORDER_RADIUS, GRAY } from "../../Global.styles";
 
 export const Label = styled.div`
-    display: flex;
-    gap: 4rem;
-    margin-left: 6rem;
-    width: 65vw;  
-    max-width: 1200px;
-    margin-bottom: 2rem;
+  display: flex;
+  gap: 4rem;
+  margin-left: 6rem;
+  width: 65vw;
+  max-width: 1200px;
+  margin-bottom: 2rem;
 
-    @media screen and (max-width: 786px) {
-      margin-left: 0;
-      gap: 0;
-      width: unset;
-      flex-wrap: wrap;
-    }
+  @media screen and (max-width: 786px) {
+    margin-left: 0;
+    gap: 0;
+    width: unset;
+    flex-wrap: wrap;
+  }
 `;
-export const ArrowIcon = styled(RiArrowDownSLine)<{rotated: boolean}>`
+export const ArrowIcon = styled(RiArrowDownSLine)<{ rotated: boolean }>`
   color: #2d419f;
-  transform: rotate(${props => props.rotated ? "180deg" : "0"});
+  transform: rotate(${(props) => (props.rotated ? "180deg" : "0")});
   transition: 0.3s;
   width: 1.5rem;
   height: 1.5rem;
@@ -47,7 +47,7 @@ export const SortButtonContent = styled.div`
   align-items: center;
   width: fit-content;
   padding: 0.5rem 2rem;
-  gap: 1rem;  
+  gap: 1rem;
   border-radius: ${BORDER_RADIUS};
   transition: 0.2s;
 
@@ -59,7 +59,7 @@ export const SortButtonContent = styled.div`
     padding: 0.5rem;
     gap: 0.25rem;
   }
-`
+`;
 
 export const ButtonText = styled.span`
   color: black;

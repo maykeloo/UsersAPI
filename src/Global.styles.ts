@@ -27,7 +27,8 @@ const GlobalStyle = createGlobalStyle`
 export const ContentWrapper = styled.main`
   width: 100%;
   margin: 0 auto;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 2rem 0;
   display: flex;
   justify-content: center;
   align-items: center;

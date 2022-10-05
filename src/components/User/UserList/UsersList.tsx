@@ -20,17 +20,17 @@ export const UsersList = () => {
 
   return (
     <>
-    <ListContent>
+      <ListContent>
         <FilterLabel />
         <EditUser />
         <SortLabel />
-      <ListWrapper>
-        {users ? (
-          users.map((user, i) => <UserBox user={user} key={i} />)
-        ) : (
-          <Loader />
-        )}
-      </ListWrapper>
+        <ListWrapper>
+          {users ? (
+            users.map((user, i) => <UserBox user={user} key={i} />)
+          ) : (
+            <Loader />
+          )}
+        </ListWrapper>
         <PaginationWrapper>
           <PaginationOutlined />
         </PaginationWrapper>

@@ -29,11 +29,7 @@ export const SignUp = (): JSX.Element => {
           <LabelTitle>E-mail</LabelTitle>
           <InputWrapper>
             <InputIconMail />
-            <Input
-              onChange={(e) => setEmail(e.target.value)}
-              type="email"
-              placeholder="Podaj e-mail"
-            />
+            <Input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Podaj e-mail"/>
           </InputWrapper>
           {emailError && <Error>Podano zły adres e-mail</Error>}
         </Label>
@@ -41,11 +37,7 @@ export const SignUp = (): JSX.Element => {
           <LabelTitle>Hasło</LabelTitle>
           <InputWrapper>
             <InputIconLock />
-            <Input
-              onChange={(e) => setPassword(e.target.value)}
-              type="password"
-              placeholder="Minimum 8 znaków"
-            />
+            <Input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Minimum 8 znaków"/>
           </InputWrapper>
           {passwordError && <Error>Podane hasło jest za krótkie</Error>}
         </Label>
@@ -53,11 +45,7 @@ export const SignUp = (): JSX.Element => {
           <LabelTitle>Powtórz hasło</LabelTitle>
           <InputWrapper>
             <InputIconLock />
-            <Input
-              onChange={(e) => setPasswordRepeat(e.target.value)}
-              type="password"
-              placeholder="Minimum 8 znaków"
-            />
+            <Input onChange={(e) => setPasswordRepeat(e.target.value)} type="password" placeholder="Minimum 8 znaków"/>
           </InputWrapper>
           {passwordRepeatError && (
             <Error>

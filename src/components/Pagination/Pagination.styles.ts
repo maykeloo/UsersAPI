@@ -9,7 +9,7 @@ export const Navigation = styled.nav`
   @media screen and (max-width: 786px) {
     justify-content: space-between;
   }
-`
+`;
 
 export const List = styled.ul`
   list-style: none;
@@ -35,7 +35,7 @@ export const SelectList = styled.select`
   cursor: pointer;
   font-size: 1rem;
   font-weight: 500;
-`
+`;
 
 export const PaginationWrapper = styled.div`
   display: flex;
