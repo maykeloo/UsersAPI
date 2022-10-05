@@ -1,8 +1,9 @@
-import { URLPayload } from '../../types/url'
+import { ReturnPayload } from "../../types/redux";
+import { URLPayload } from "../../types/url";
 
-export const searchParams = (value: URLPayload) => {
-      return {
-            type: "SEARCH_PARAMS",
-            payload: value
-      }
-}
+export const searchParams = (value: URLPayload): ReturnPayload => {
+  return {
+    type: "SEARCH_PARAMS",
+    payload: value,
+  };
+};

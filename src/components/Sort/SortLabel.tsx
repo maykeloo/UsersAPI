@@ -4,50 +4,20 @@ import { SortButton, SortButtonContent } from "./SortLabel.styles";
 import { ArrowIcon, ButtonText, Label } from "./SortLabel.styles";
 import { searchParams } from '../../redux/actions/searchingParams'
 import { URLPayload } from "../../types/url";
+import { values, Values } from "./SortValues";
 
-interface Values {
-  name: string;
-  sortBy: string;
-  width: string;
-}
 export const SortLabel: React.FC = () => {
-  const values: Values[] = [
-    {
-      name: "Imię",
-      sortBy: "sort[name]",
-      width: "15",
-    },
-    {
-      name: "Nazwisko",
-      sortBy: "sort[surname]",
-      width: "20",
-    },
-    {
-      name: "E-mail",
-      sortBy: "sort[email]",
-      width: "20",
-    },
-    {
-      name: "Data urodzenia",
-      sortBy: "sort[birth_date]",
-      width: "20",
-    },
-  ];
-
   const dispatch = useDispatch()
   const params = useSelector((state: ReduxState) => state.searchReducer);
-
   
-  const data = {
+  const resetedData = {
     "filter[is_activated]": params["filter[is_activated]"],
     "page": params.page,
     "perPage": params.perPage,
   }
 
-  //TODO: SORTOWANIE LEZY I KWICZY
   const sortBy = (value: Values) => {
-    dispatch(searchParams({...params, [value.sortBy]: params[value.sortBy as keyof URLPayload] === "asc" ? "desc" : "asc" }))
-    console.log({params, data})
+    dispatch(searchParams({...resetedData as URLPayload, [value.sortBy]: params[value.sortBy as keyof URLPayload] === "asc" ? "desc" : "asc" }))
   }
 
   return (
@@ -56,7 +26,7 @@ export const SortLabel: React.FC = () => {
         <SortButton width={value.width} onClick={() => sortBy(value)}>
           <SortButtonContent>
             <ButtonText>{value.name}</ButtonText>
-            <ArrowIcon arrowRotate={params[value.sortBy as keyof URLPayload] === "asc" ? true : false}/>
+            <ArrowIcon rotated={params[value.sortBy as keyof URLPayload] === "asc" ? true : false}/>
           </SortButtonContent>
         </SortButton>
       ))}

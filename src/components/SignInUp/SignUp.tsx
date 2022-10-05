@@ -1,13 +1,12 @@
 import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { useUserRegister } from "../../hooks/useUserRegister";
-import { ReactComponent as Loader } from "../../assets/svg/loader.svg";
+import Loader from "../Reusable/Loader";
 import {
   Error,
   Input,
   InputIconLock,
   InputIconMail,
-  InputIconName,
   InputWrapper,
   Label,
   LabelTitle,
@@ -17,42 +16,15 @@ import {
 } from "./SignInUp.styles";
 
 export const SignUp = (): JSX.Element => {
-  const [name, setName] = useState<string>("");
-  const [surname, setSurname] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [passwordRepeat, setPasswordRepeat] = useState<string>("");
-  const { loading, signUp, emailError, passwordError, passwordRepeatError } =
-    useUserRegister(name, surname, email, password, passwordRepeat);
+  const { loading, signUp, emailError, passwordError, passwordRepeatError } = useUserRegister(email, password, passwordRepeat);
 
   return (
     <Fragment>
       <LoginBox>
         <Title>Zaczynamy!</Title>
-        <Label>
-          <LabelTitle>Imię</LabelTitle>
-          <InputWrapper>
-            <InputIconName />
-            <Input
-              onChange={(e) => setName(e.target.value)}
-              type="text"
-              placeholder="Podaj imię"
-            />
-          </InputWrapper>
-          {emailError && <Error>Podano zły adres e-mail</Error>}
-        </Label>
-        <Label>
-          <LabelTitle>Nazwisko</LabelTitle>
-          <InputWrapper>
-            <InputIconName />
-            <Input
-              onChange={(e) => setSurname(e.target.value)}
-              type="text"
-              placeholder="Podaj nazwisko"
-            />
-          </InputWrapper>
-          {emailError && <Error>Podano zły adres e-mail</Error>}
-        </Label>
         <Label>
           <LabelTitle>E-mail</LabelTitle>
           <InputWrapper>
@@ -87,7 +59,11 @@ export const SignUp = (): JSX.Element => {
               placeholder="Minimum 8 znaków"
             />
           </InputWrapper>
-          {passwordRepeatError && <Error>Podane hasło jest za krótkie lub różni się od podanego wyżej</Error>}
+          {passwordRepeatError && (
+            <Error>
+              Podane hasło jest za krótkie lub różni się od podanego wyżej
+            </Error>
+          )}
         </Label>
         <Label>
           <LabelTitle>
@@ -95,7 +71,7 @@ export const SignUp = (): JSX.Element => {
           </LabelTitle>
         </Label>
         <SubmitButton onClick={signUp}>Zarejestruj się</SubmitButton>
-        {loading && <Loader/>}
+        {loading && <Loader />}
       </LoginBox>
     </Fragment>
   );

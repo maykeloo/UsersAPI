@@ -10,12 +10,11 @@ import { useRefreshToken } from "./hooks/useRefreshToken";
 
 function App() {
   const isLogged = useSelector((state: ReduxState) => state.loggedReducer)
-
   const { refetch } = useRefreshToken();
  
   useEffect(() => {
     refetch();
-  }, [])
+  })
 
   return (
     <Fragment>

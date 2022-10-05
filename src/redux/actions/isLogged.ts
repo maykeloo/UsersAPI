@@ -1,5 +1,7 @@
-export const isLogged = () => {
-      return {
-            type: "IS_LOGGED",
-      }
-}
+import { ReturnPayload } from "../../types/redux";
+
+export const isLogged = (): ReturnPayload => {
+  return {
+    type: "IS_LOGGED",
+  };
+};

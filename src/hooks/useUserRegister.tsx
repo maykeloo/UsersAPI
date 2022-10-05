@@ -1,15 +1,11 @@
 import { useState } from "react";
 
 export const useUserRegister = (
-  name: string,
-  surname: string,
   email: string,
   password: string,
   passwordRepeat: string
 ) => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [nameError, setNameError] = useState<boolean>(false);
-  const [surnameError, setSurnameError] = useState<boolean>(false);
   const [emailError, setEmailError] = useState<boolean>(false);
   const [passwordError, setPasswordError] = useState<boolean>(false);
   const [passwordRepeatError, setPasswordRepeatError] =
@@ -17,31 +13,24 @@ export const useUserRegister = (
   const emailRegex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-z]+)$/;
 
   const signUp = async () => {
-    setNameError(name.length < 2 ? true : false);
-    setSurnameError(password.length < 2 ? true : false);
     setEmailError(!emailRegex.test(email) ? true : false);
     setPasswordError(password.length < 8 ? true : false);
     setPasswordRepeatError(
       passwordRepeat.length < 8 || password !== passwordRepeat ? true : false
     );
     if (
-      name &&
-      surname &&
       email &&
       password &&
       passwordRepeat &&
-      !nameError &&
-      !surnameError &&
       !emailError &&
       !passwordError &&
-      !passwordRepeatError
+      !passwordRepeatError &&
+      passwordRepeat === password
     ) {
       setLoading(true);
 
       const DATA_REGISTER = {
         email: email,
-        name: name,
-        surname: surname,
         plainPassword: password,
       };
 
@@ -77,16 +66,16 @@ export const useUserRegister = (
             }
           );
           const contentCheck = await rawResponse.json();
-          if(contentCheck) {
+          if (contentCheck) {
             setLoading(false);
             document.cookie = `token=${contentCheck.token}`;
             document.cookie = `refresh=${contentCheck.refresh_token}`;
             window.location.href = "/";
           }
         }
-      } catch(err) {
+      } catch (err) {
         setLoading(false);
-        throw new Error(`Can't register: ${err}`)
+        throw new Error(`Can't register: ${err}`);
       }
     }
   };

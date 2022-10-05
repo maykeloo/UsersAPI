@@ -9,10 +9,17 @@ export const Label = styled.div`
     width: 65vw;  
     max-width: 1200px;
     margin-bottom: 2rem;
+
+    @media screen and (max-width: 786px) {
+      margin-left: 0;
+      gap: 0;
+      width: unset;
+      flex-wrap: wrap;
+    }
 `;
-export const ArrowIcon = styled(RiArrowDownSLine)<{arrowRotate: boolean}>`
+export const ArrowIcon = styled(RiArrowDownSLine)<{rotated: boolean}>`
   color: #2d419f;
-  transform: rotate(${props => props.arrowRotate ? "180deg" : "0"});
+  transform: rotate(${props => props.rotated ? "180deg" : "0"});
   transition: 0.3s;
   width: 1.5rem;
   height: 1.5rem;
@@ -25,6 +32,13 @@ export const SortButton = styled.button<{ width: string }>`
   font-size: 1.1rem;
   background-color: ${GRAY};
   cursor: pointer;
+
+  @media screen and (max-width: 786px) {
+    font-size: 0.8rem;
+    width: 50% !important;
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export const SortButtonContent = styled.div`
@@ -39,6 +53,11 @@ export const SortButtonContent = styled.div`
 
   &:hover {
     background: #dcdcdc;
+  }
+
+  @media screen and (max-width: 786px) {
+    padding: 0.5rem;
+    gap: 0.25rem;
   }
 `
 

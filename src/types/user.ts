@@ -11,5 +11,3 @@ export interface GetUserPayload {
   more: boolean;
   total: number;
 }
-
-
