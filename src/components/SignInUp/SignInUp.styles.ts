@@ -88,5 +88,6 @@ export const InputIconName = styled(MdDriveFileRenameOutline)`
 
 export const Error = styled.span`
       color: red;
+      margin-top: 5px;
       font-size: 0.8rem;
 `

@@ -99,7 +99,7 @@ export const EditModal = ({setModalVisible}: Props): JSX.Element => {
             </EditModalFooter>
       </EditModalWrapper>
       {loading && <Loader/>}
-      { dataError === (400 || 401) && <Popup color="red" children="ERROR! Nie udało się zaktualizować danych. Spróbuj zalogować się jeszcze raz lub uzupełnij poprawnie dane."/>}
+      { (dataError === 400 || dataError === 401) && <Popup color="red" children="ERROR! Nie udało się zaktualizować danych. Spróbuj zalogować się jeszcze raz lub uzupełnij poprawnie dane."/>}
       { dataError === 200 && <Popup color="green" children="Aktualizacja zakończona sukcesem."/> }
     </Fragment>
   )
